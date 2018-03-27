@@ -64,6 +64,7 @@ int main()
             // "asm.reg.add 0 1 2" => arguments="0 1 2"
             if (*arguments < '0' || *arguments > '9' || arguments[1] != ' ') {
                 // invalid register - must be just one digit
+                cout << __LINE__ << endl;
                 cout << "ERROR" << endl;
                 continue; // next loop of the repl
             }
@@ -72,6 +73,7 @@ int main()
             // "0 1 2" => "1 2"
             if (*arguments < '0' || *arguments > '9' || arguments[1] != ' ') {
                 // invalid register - must be just one digit
+                cout << __LINE__ << endl;
                 cout << "ERROR" << endl;
                 continue; // next loop of the repl
             }
@@ -81,6 +83,7 @@ int main()
             // "1 2" => "2"
             if (*arguments < '0' || *arguments > '9' || arguments[1] != '\0') {
                 // invalid register - must be just one digit at end of string
+                cout << __LINE__ << endl;
                 cout << "ERROR" << endl;
                 continue; // next loop of the repl
             }
@@ -88,7 +91,7 @@ int main()
             
             int sum = registers[reg2] + registers[reg3];
             if (sum > 100 || sum < -100) {
-                cout << "ERROR" << endl;
+                cout << "ERROR:overflow" << endl;
                 continue; // next loop of the repl
             }
             
